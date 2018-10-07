@@ -71,6 +71,7 @@ const TabRouter = createBottomTabNavigator(
                 tabBarIcon: ({ tintColor }) => (
                     <FontAwesome name="video-camera" size={24} color={tintColor} />
                 ),
+                //tabBarOnPress: () => { alert(1); }
             }
         },
         FriendsScreen: {

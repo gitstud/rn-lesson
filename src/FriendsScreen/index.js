@@ -20,6 +20,15 @@ import {
 } from '../actions/friends';
 
 class FriendsScreen extends Component {
+    componentDidMount() {
+        alert('yeeee');
+        /*
+        database.on('value', (snapshot) => {
+            console.log();
+        });
+        */
+        this.props.navigation.addListener('willFocus', (route) => { alert('changed'); });
+    }
     render() {
         const {
             updateValue: update,

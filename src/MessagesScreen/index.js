@@ -14,30 +14,37 @@ import {
 } from 'native-base';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-/*import {
-    updateValue,
-    UPDATE_EMAIL,
-    UPDATE_PASSWORD,
-    handleLogin,
-} from '../actions/auth';*/
+import email from 'react-native-email';
 
 class MessagesScreen extends Component {
+    handleEmail = () => {
+        const cc = [];
+        const bcc = [];
+        const to = 'areg.abc@gmail.com';
+        const subject = 'test';
+        const body = 'Hello';
+
+        email(to, {
+            cc,
+            bcc,
+            subject,
+            body,
+        }).catch(console.error);
+    }
+
     render() {
-        const {/*
-            email,
-            password,
-            error,
-            user,
-            updateValue: update,
-            handleLogin: login,*/
+        const {
             navigation,
         } = this.props;
-        //console.log(user);
+
         return  (
             <View style={styles.container}>
                 <Text style={styles.heading}>
                     Messages
                 </Text>
+                <Button onPress={() => this.handleEmail()}>
+                    <Text style={styles.butonText}>Email Hello</Text>
+                </Button>
             </View>
         )
     }
